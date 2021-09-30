@@ -4,7 +4,7 @@ const options = require('../data')
 const gameby = require('../data/by')
 class User extends MachineOptions{
     constructor({ opt, name, selected }) {
-        super([ opt ])
+        super({ opt })
         this._name = name
         this._selected = selected
         this._sort = this.sort()
@@ -28,7 +28,7 @@ class User extends MachineOptions{
             return `${this._name}, a maquina escolheu ${this._sort} e você escolheu ${this._selected} - resultado => você empatou! `
         } else if (
             ( this._selected === "Pedra" && this._sort === 'Tesoura') ||
-            ( this._selected === "Tesoura" && this._sort === 'Papel')
+            ( this._selected === "Tesoura" && this._sort === 'Papel') ||
             ( this._selected === "Papel" && this._sort === 'Pedra')
         ) {
             return `${this._name}, a maquina escolheu ${this._sort} e você escolheu ${this._selected} - resultado => você ganhou! `
@@ -41,8 +41,8 @@ class User extends MachineOptions{
         return inquirer.prompt([
             {
                 name: 'name',
-            message:' Qual seu name?',
-            default: 'Jogador'
+                message:' Qual seu name?',
+                default: 'Jogador'
             },
             {
                 type: 'list',

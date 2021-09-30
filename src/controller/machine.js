@@ -3,7 +3,7 @@ class MachineOptions{
         this._opt = opt
     }
 
-    sort(){
+    sort() {
         const sortResult = Math.floor(Math.random() * 3 - 0)
         return this._opt[sortResult].name
     }
